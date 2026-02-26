@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "minewatch",
+  "version": "${version}",
+
+  "name": "MineWatch",
+  "description": "도미팔닥",
+  "authors": [],
+  "contact": {},
+
+  "license": "All-Rights-Reserved",
+  "icon": "assets/minewatch/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.domi.minewatch.client.MinewatchDataGenerator"
+    ],
+    "client": [
+      "org.domi.minewatch.client.MinewatchClient"
+    ],
+    "main": [
+      "org.domi.minewatch.Minewatch"
+    ]
+  },
+
+  "mixins": [
+    "minewatch.mixins.json",
+    {
+      "config": "minewatch.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
